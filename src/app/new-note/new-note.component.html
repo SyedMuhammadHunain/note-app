@@ -1,0 +1,22 @@
+<div id="new-note-form">
+  <form (ngSubmit)="onFormSubmit()">
+    <fieldset>
+      <legend>Add a New Note</legend>
+
+      <label for="title">Title</label>
+      <input id="title" name="title" type="text" [(ngModel)]="data.title" />
+
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        name="description"
+        [(ngModel)]="data.description"
+      ></textarea>
+
+      <div class="form-buttons">
+        <app-icon-button customClass="fa fa-paper-plane"></app-icon-button>
+        <button type="button" (click)="onCloseForm()">Close</button>
+      </div>
+    </fieldset>
+  </form>
+</div>

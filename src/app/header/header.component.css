@@ -1,0 +1,10 @@
+#header {
+    height: 10vh;
+    padding: 0px 3rem;
+    display: flex;
+    align-items: center;
+}
+
+#header app-icon-button {
+    margin-left: auto;
+}

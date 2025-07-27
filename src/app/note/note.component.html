@@ -1,0 +1,6 @@
+<div class="note-card">
+  <p>Title: {{ noteData().title }}</p>
+  <p>Description: {{ noteData().description }}</p>
+  <p>Date: {{ noteData().date | date: 'fullDate' }}</p>
+  <app-icon-button customClass="fa fa-trash"></app-icon-button>
+</div>

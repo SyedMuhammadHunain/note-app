@@ -1,12 +1,39 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from '@angular/core';
+
+import { HeaderComponent } from './header/header.component';
+import { NewNoteComponent } from './new-note/new-note.component';
+import { NoteComponent } from './note/note.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [HeaderComponent, NewNoteComponent, NoteComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'note-app';
+  notesArray: {
+    id: string;
+    title: string;
+    description: string;
+    date: string;
+  }[] = [];
+
+  isNewNoteForm = signal<boolean>(false);
+
+  toggleForm() {
+    this.isNewNoteForm.set(!this.isNewNoteForm());
+  }
+
+  closeForm() {
+    this.isNewNoteForm.set(false);
+  }
+
+  handleNewNote(newNote: { title: string; description: string }) {
+    this.notesArray.push({
+      id: Date.now().toString(),
+      title: newNote.title,
+      description: newNote.description,
+      date: new Date().toISOString(),
+    });
+  }
 }

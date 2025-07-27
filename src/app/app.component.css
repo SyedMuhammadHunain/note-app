@@ -1,0 +1,25 @@
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+#notes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1500px;
+  margin: 5rem auto;
+  padding: 3rem;
+  border-radius: 12px;
+}
+
+span {
+  font-family: "Lato";
+  font-size: 4rem;
+}
