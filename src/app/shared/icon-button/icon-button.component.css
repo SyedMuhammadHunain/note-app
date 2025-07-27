@@ -1,11 +1,14 @@
 button {
   border: none;
-  font-size: 5rem;
+  font-size: 5.2rem; /* Slightly increased for better visual balance */
   background-color: transparent;
   padding: 0.6rem;
   border-radius: 5rem;
+  color: inherit; /* Inherit color from parent for flexibility */
+  transition: opacity 0.2s ease; /* Subtle hover effect */
 }
 
 button:hover {
   cursor: pointer;
+  opacity: 0.8; /* Subtle hover feedback */
 }

@@ -9,11 +9,12 @@
 form {
   width: 25vw;
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent for depth */
+  backdrop-filter: blur(10px); /* Subtle blur effect */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(147, 51, 234, 0.2), 0 2px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow with purple tint */
   font-family: "Inter";
 }
 
@@ -26,31 +27,37 @@ fieldset {
 }
 
 legend {
-  font-size: 2.4rem;
+  font-size: 2.6rem; /* Slightly increased for better hierarchy */
   font-weight: 600;
   font-family: "Poppins";
   margin-bottom: 1rem;
+  color: #1a1a1a; /* Dark text for contrast on light form */
 }
 
 label {
-  font-size: 2rem;
+  font-size: 2.1rem; /* Slightly increased for better readability */
   margin-bottom: 0.4rem;
-  color: #333;
+  color: #1a1a1a; /* Dark text for contrast on light form */
 }
 
 input {
   width: 100%;
-  font-size: 2rem;
+  font-size: 2.1rem; /* Consistent with label sizing */
   padding: 0.8rem 1rem;
   font-family: inherit;
+  color: #1a1a1a; /* Dark text for input */
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(147, 51, 234, 0.2); /* Subtle purple border */
 }
 
 textarea {
   height: 300px;
   padding: 0.8rem 1rem;
-  font-size: 2rem;
-  color: #000000;
+  font-size: 2.1rem; /* Consistent sizing */
+  color: #1a1a1a;
   font-family: inherit;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(147, 51, 234, 0.2); /* Subtle purple border */
 }
 
 .form-buttons {
@@ -61,7 +68,7 @@ textarea {
 
 .form-buttons app-icon-button,
 .form-buttons button {
-  font-size: 2rem;
+  font-size: 2.1rem; /* Consistent button text sizing */
   padding: 0.5rem 2rem;
   font-family: 'Lato';
   cursor: pointer;
@@ -70,11 +77,11 @@ textarea {
 
 .form-buttons app-icon-button {
   background-color: transparent;
-  color: white;
+  color: #1a1a1a; /* Dark color for visibility on light form */
 }
 
 .form-buttons button {
   background-color: transparent;
-  color: black;
+  color: #1a1a1a;
   font-weight: 700;
 }
