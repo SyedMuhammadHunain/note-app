@@ -7,6 +7,8 @@
   display: flex;
   justify-content: center;
   padding: 2rem 0;
+  /* Subtle backdrop for form overlay */
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 #notes-grid {
@@ -21,5 +23,6 @@
 
 span {
   font-family: "Lato";
-  font-size: 4rem;
+  font-size: 4.2rem; /* Increased for better visual impact */
+  color: rgba(255, 255, 255, 0.7); /* Subtle white for empty state */
 }
