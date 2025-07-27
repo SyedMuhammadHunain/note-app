@@ -1,10 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
-import { IconButtonComponent } from '../shared/icon-button/icon-button.component';
-
 @Component({
   selector: 'app-header',
-  imports: [IconButtonComponent],
+  standalone: false,
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })

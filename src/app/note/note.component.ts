@@ -1,11 +1,8 @@
 import { Component, input, EventEmitter, Output } from '@angular/core';
 
-import { IconButtonComponent } from '../shared/icon-button/icon-button.component';
-import { CommonModule } from '@angular/common';
-
 @Component({
   selector: 'app-notes',
-  imports: [IconButtonComponent, CommonModule],
+  standalone: false,
   templateUrl: './note.component.html',
   styleUrl: './note.component.css',
 })

@@ -1,11 +1,8 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
-import { IconButtonComponent } from '../shared/icon-button/icon-button.component';
 
 @Component({
   selector: 'app-new-note',
-  imports: [IconButtonComponent, FormsModule],
+  standalone: false,
   templateUrl: './new-note.component.html',
   styleUrls: ['./new-note.component.css'],
 })
