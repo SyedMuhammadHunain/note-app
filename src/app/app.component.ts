@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject, OnInit } from '@angular/core';
 
 import { HeaderComponent } from './header/header.component';
 import { NewNoteComponent } from './new-note/new-note.component';
 import { NoteComponent } from './note/note.component';
+import { LocalStorageService } from './service/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { NoteComponent } from './note/note.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   notesArray: {
     id: string;
     title: string;
@@ -18,7 +19,12 @@ export class AppComponent {
     date: string;
   }[] = [];
 
+  ngOnInit() {
+    this.notesArray = this.localStorageService.loadNotes();
+  }
+
   isNewNoteForm = signal<boolean>(false);
+  private localStorageService = inject(LocalStorageService);
 
   toggleForm() {
     this.isNewNoteForm.set(!this.isNewNoteForm());
@@ -28,16 +34,18 @@ export class AppComponent {
     this.isNewNoteForm.set(false);
   }
 
-  deleteNoteById(id: string) {
+  deleteNote(id: string) {
     this.notesArray = this.notesArray.filter((note) => note.id !== id);
+    this.localStorageService.saveNotes(this.notesArray);
   }
 
-  handleNewNote(newNote: { title: string; description: string }) {
+  addNote(newNote: { title: string; description: string }) {
     this.notesArray.push({
       id: Date.now().toString(),
       title: newNote.title,
       description: newNote.description,
       date: new Date().toISOString(),
     });
+    this.localStorageService.saveNotes(this.notesArray);
   }
 }

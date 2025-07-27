@@ -2,13 +2,13 @@
 
 @if(isNewNoteForm()) {
 <div class="form-overlay">
-  <app-new-note (onClose)="closeForm()" (onClose)="handleNewNote($event)" />
+  <app-new-note (onClose)="closeForm()" (onClose)="addNote($event)" />
 </div>
 }
 
 <div id="notes-grid">
   @for (note of notesArray; track note.id) {
-  <app-notes [noteData]="note" (delete)="deleteNoteById($event)" />
+  <app-notes [noteData]="note" (delete)="deleteNote($event)" />
   } @empty {
   <p><span>No Notes written!</span></p>
   }
