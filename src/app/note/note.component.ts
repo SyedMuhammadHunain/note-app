@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, EventEmitter, Output } from '@angular/core';
 
 import { IconButtonComponent } from '../shared/icon-button/icon-button.component';
 import { CommonModule } from '@angular/common';
@@ -11,8 +11,15 @@ import { CommonModule } from '@angular/common';
 })
 export class NoteComponent {
   noteData = input.required<{
+    id: string;
     title: string;
     description: string;
     date: string;
   }>();
+
+  @Output() delete = new EventEmitter<string>();
+
+  onDeleteNote() {
+    this.delete.emit(this.noteData().id);
+  }
 }

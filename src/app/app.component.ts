@@ -28,6 +28,10 @@ export class AppComponent {
     this.isNewNoteForm.set(false);
   }
 
+  deleteNoteById(id: string) {
+    this.notesArray = this.notesArray.filter((note) => note.id !== id);
+  }
+
   handleNewNote(newNote: { title: string; description: string }) {
     this.notesArray.push({
       id: Date.now().toString(),

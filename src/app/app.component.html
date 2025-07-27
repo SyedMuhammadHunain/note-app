@@ -8,7 +8,7 @@
 
 <div id="notes-grid">
   @for (note of notesArray; track note.id) {
-  <app-notes [noteData]="note" />
+  <app-notes [noteData]="note" (delete)="deleteNoteById($event)" />
   } @empty {
   <p><span>No Notes written!</span></p>
   }
