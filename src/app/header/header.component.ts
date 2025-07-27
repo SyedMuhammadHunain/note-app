@@ -6,7 +6,7 @@ import { IconButtonComponent } from '../shared/icon-button/icon-button.component
   selector: 'app-header',
   imports: [IconButtonComponent],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css',]
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
   @Output() plusClick = new EventEmitter();

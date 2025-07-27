@@ -18,7 +18,9 @@ export class NewNoteComponent {
   @Output() onClose = new EventEmitter();
 
   onFormSubmit() {
-    this.onClose.emit(this.data); // emits data
+    !this.data.title || !this.data.description
+      ? alert('Please enter a title and description before submitting!')
+      : this.onClose.emit(this.data); // emits data
   }
 
   onCloseForm() {
