@@ -7,8 +7,6 @@
   display: flex;
   justify-content: center;
   padding: 2rem 0;
-  /* Subtle backdrop for form overlay */
-  background-color: rgba(0, 0, 0, 0.3);
 }
 
 #notes-grid {

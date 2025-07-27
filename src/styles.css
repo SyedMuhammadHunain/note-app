@@ -10,14 +10,22 @@ html {
 }
 
 body {
-  background: #000000;
-  /* Subtle purple gradient emanating from center */
-  background-image: 
-    radial-gradient(ellipse at center, rgba(147, 51, 234, 0.15) 0%, rgba(147, 51, 234, 0.08) 25%, rgba(147, 51, 234, 0.03) 50%, transparent 70%),
-    /* Top-center purple light effect */
-    radial-gradient(ellipse 800px 400px at 50% 0%, rgba(147, 51, 234, 0.12) 0%, rgba(147, 51, 234, 0.06) 30%, transparent 60%);
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: #120a1d;
+  background-image: radial-gradient(
+    ellipse at center,
+    rgba(200, 102, 255, 0.09) 0%,
+    rgba(178, 102, 255, 0.09) 30%,
+    rgba(178, 102, 255, 0.06) 60%,
+    transparent 80%
+  );
+
+  color: #f0eefb;
   min-height: 100vh;
-  color: #ffffff;
 }
 
 h1 {
@@ -28,7 +36,9 @@ h1 {
   color: #ffffff;
 }
 
-p, legend, label {
+p,
+legend,
+label {
   font-family: "Inter";
   font-size: 1.7rem; /* Slightly increased for better readability */
   line-height: 1.6;
