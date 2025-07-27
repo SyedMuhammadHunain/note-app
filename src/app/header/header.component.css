@@ -8,3 +8,9 @@
 #header app-icon-button {
     margin-left: auto;
 }
+
+#header app-icon-button:hover {
+    background-color: rgba(8, 8, 8, 0.098);
+    border-radius: 5rem;
+}
+

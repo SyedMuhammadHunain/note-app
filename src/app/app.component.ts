@@ -3,7 +3,7 @@ import { Component, signal, inject, OnInit } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { NewNoteComponent } from './new-note/new-note.component';
 import { NoteComponent } from './note/note.component';
-import { LocalStorageService } from './service/local-storage/local-storage.service';
+import { LocalStorageService } from './service/local-storage.service';
 
 @Component({
   selector: 'app-root',
