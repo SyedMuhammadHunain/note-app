@@ -1,6 +1,5 @@
-import { Component, signal, inject, OnInit } from '@angular/core';
-
-import { LocalStorageService } from './service/local-storage.service';
+import { Component, signal, inject, OnInit, DestroyRef } from '@angular/core';
+import { NotesService } from './service/notes.service';
 
 @Component({
   selector: 'app-root',
@@ -8,20 +7,13 @@ import { LocalStorageService } from './service/local-storage.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
-  notesArray: {
-    id: string;
-    title: string;
-    description: string;
-    date: string;
-  }[] = [];
+export class AppComponent {
+  notesService = inject(NotesService);
+  destroyRef = inject(DestroyRef);
 
-  ngOnInit() {
-    this.notesArray = this.localStorageService.loadNotes();
-  }
+  notes = this.notesService.notesArray;
 
   isNewNoteForm = signal<boolean>(false);
-  private localStorageService = inject(LocalStorageService);
 
   toggleForm() {
     this.isNewNoteForm.set(!this.isNewNoteForm());
@@ -32,17 +24,13 @@ export class AppComponent implements OnInit {
   }
 
   deleteNote(id: string) {
-    this.notesArray = this.notesArray.filter((note) => note.id !== id);
-    this.localStorageService.saveNotes(this.notesArray);
+    this.notesService.removeNotes(id).subscribe();
   }
 
   addNote(newNote: { title: string; description: string }) {
-    this.notesArray.push({
-      id: Date.now().toString(),
-      title: newNote.title,
-      description: newNote.description,
-      date: new Date().toISOString(),
+    const subscription = this.notesService.addNotes(newNote).subscribe({
+      error: () => console.log('Something went wrong during adding notes.'),
     });
-    this.localStorageService.saveNotes(this.notesArray);
   }
 }
+
